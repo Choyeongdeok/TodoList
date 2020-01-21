@@ -1,7 +1,7 @@
 import React from 'react'
 import './TodoListTemplate.css'
 
-const TodoListTemplate = ({form, children}) => {
+const TodoListTemplate = ({form, children}) => { //App 컴포넌트에서 form, children 받아옴
     return (
         <main className = "todo-list-template">
             <div className = "title">

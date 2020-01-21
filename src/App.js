@@ -16,13 +16,15 @@ class App extends Component{
         ]
     }
 
-    handleChange = (e) => {
+    handleChange = (e) => { //event가 발생할 때 value를 input으로 setState
         this.setState({
             input : e.target.value
+            //event가 발생한 컴포넌트의 value
+            //handlechange는 Form 컴포넌트에서 호출되고 Form의 value를 input으로 setState
         })
     }
 
-    handleCreate = () => {
+    handleCreate = () => { //todo 생성
         const {input, todo} = this.state;
         this.setState({
             input : '',
@@ -77,10 +79,10 @@ class App extends Component{
       } = this //비구조화 할당을 통해 함수 호출 시에 this.를 붙일 수고를 덜어줌
       return (
         <TodoListTemplate form = {<Form
-            value = {input}
-            onChange = {handleChange}
-            onCreate = {handleCreate}
-            onKeyPress = {handleKeyPress}
+            value = {input} //input의 내용
+            onChange = {handleChange} //input 내용이 변경될 때 실행되는 함수
+            onCreate = {handleCreate} //버튼이 클릭될 때 실행될 함수
+            onKeyPress = {handleKeyPress}//input에서 enter키를 눌렀을 때 onCreate(버튼을 클릭)와 같은 효과
         />}>
           <TodoItemList todo = {todo} onToggle = {handleToggle} onRemove = {handleRemove}/> {/*TodoListTemplate 의 children */}
         </TodoListTemplate>
